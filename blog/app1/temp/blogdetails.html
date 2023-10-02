@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'file.js' %}"></script>
+</head>
+<body>
+   <div class="navbar">
+    
+    <div class="navigation">
+        <ul>
+            <div class="nav2">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="websitetitle" >
+                    TechScribeAI
+                </span> 
+                
+            </div>
+          
+            <div class="items">
+                <li><a href="" style="text-decoration: none; color: white; background-color: green; border-radius: 10px;">Our story</a></li>
+                <li><a href="/addblog/" class="write" style="text-decoration: none; color: white; background-color: green;border-radius: 10px;">Write</a></li>
+                <span class="user1" style="background-color: aliceblue; margin-top: -15px;">
+                    <li><img src="{% static 'usericon.jpg' %}" alt=""  style="height: 30px; width: 30px;border-radius: 20px; margin-left: 30px; margin-top: 0px;"></li>
+                 
+                 
+                <span style="height: 15px;" ><li style="border-radius: 20px;"><a href="{% url 'profile'  %}" style="text-decoration: none; color: black;margin:5px;">{{user}}</a></li>  </span>
+            </span>
+        </div>
+        </ul>
+    </div>
+    <section>
+        <div style="align-items: center; display: flex; flex-direction: column;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <div style="align-self: center;font-size: 50px;width: fit-content; font-weight: 700;">{{blog_obj.title}}</div>
+                <br>
+                <br>
+                <div style="align-self: center;"><img class="img-fluid mb-5"
+                        src="/media/{{blog_obj.image}}"
+                        alt="" style="width: 300px; height: 200px;"></div>
+                    <br>
+                    <br>
+                    <br>
+          
+           
+                    <div style="align-self: center;  margin-left: 50px; margin-right: 50px;">
+                        {{blog_obj.content|safe}}
+                    </div>
+                    <div style=" margin-right: 1000px;"><img src="{% static 'viewimage.png' %}"  style="width: 20px; height: 10px;"  alt="">  {{blog_obj.views}}</div>
+        </div>
+         <hr style="margin: 30px;">
+         
+        <div style="margin-left: 100px; display: flex; flex-direction: column;background-color: white;width: 300px;">
+            <span style="font-weight: 700; margin-left: 5px;">All Comments.....</span>
+            <br>
+            {% for comment in comments %}
+            
+            <span style=" width: fit-content; color: black;margin-left: 5px;">  <img src="{% static 'usericon.jpg'  %}" style="width: 10px; height: 10px;border-radius: 2px;"  alt="">  {{ comment.name }}</span>
+            <strong style="color:rgba(39, 36, 36, 0.598); margin-left: 5px;">{{ comment.comment }}</strong>
+            <br>
+            
+        {% endfor %}
+            <form method="post">
+                {% csrf_token %}
+            
+            <h3 style="color: black; ">Add Comment....</h3>
+            
+            <input type="text"  name="comment1" placeholder="comment....." style=" background-color: white;">
+            <button type="submit" style=" background-color: rgb(58, 58, 245); color: white;" >Post</button>
+            
+        </form>
+        </div>
+    </section>
+   
+ 
+   
+
+</div>
+  
+</body>

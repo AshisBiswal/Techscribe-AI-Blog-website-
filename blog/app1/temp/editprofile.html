@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'editcss.css'  %}">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(234, 234, 183)">
+    <div  class="editform"  style="background-color: rgb(220, 245, 220); width: 500px; margin-left: 370px; margin-top: 20px;">
+        <form method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; justify-content: space-around;">
+            {% csrf_token %}
+            <img src='{% static "profileicon.jpg" %}' alt="" style="border-radius: 10px;">
+            <label for="photo">Choose Your Picture</label>
+            <input type="file" name="photo">
+            <label for="name">Enter Your Username</label>
+            <input type="text" name="name">
+            
+            <label for="Facebook">Enter Your Facebook Url</label>
+            <input type="text" name="Facebook" placeholder="Enter your url......">
+            <label for="Instagram">Enter Your Instagram Url</label>
+            <input type="text" name="Instagram" placeholder="Enter your url......">
+            <label for="about">About</label>
+            <input type="text" name="about" placeholder="Enter about yourself......">
+            <button type="submit">Save Changes</button>
+
+
+
+        </form>
+    </div>
+</body>
+</html>

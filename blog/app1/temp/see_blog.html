@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'myfirst.js' %}"></script>
+    
+</head>
+<body>
+   <div class="navbar">
+    
+    <div class="navigation">
+        <ul>
+            <div class="nav2">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="searchbar">
+                <img src="{% static 'search.png'  %}" alt="" class="searchicon" id="searchclick">
+                <label for="search"></label>
+                <input type="text" name="search" class="search" placeholder="Search" id="searchnews">
+                </span> 
+            </div>
+          
+            <div class="items">
+            <li><a href="" style="text-decoration: none; color: black;">Our story</a></li>
+            <li><a href="" class="/login/" style="text-decoration: none; color: black;">Write</a></li>
+           
+        </div>
+        </ul>
+    </div>
+    <section class="mt-5 pt-5">
+        <div class="container">
+           
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Blog title</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for blog in blog_objs %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{blog.title}}</td>
+                <td>{{blog.created_at}}</td>
+                <td>
+                    <a href="{%  url 'blog_update' blog.slug %}" class="btn btn-success">Update</a>
+                    <a href="{% url 'blog_delete' blog.id %}" class="btn btn-danger">Delete</a>
+    
+    
+                </td>
+              </tr>
+              {% endfor %}
+             
+    
+              </tbody>
+              </table>
+              
+        </div>
+    </section>
+</div>

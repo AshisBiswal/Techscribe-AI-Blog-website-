@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+</head>
+<body>
+   <div class="navbar">
+    
+    <div class="navigation">
+        <ul>
+            <div class="nav2">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="searchbar">
+                <img src="{% static 'search.png'  %}" alt="" class="searchicon" id="searchclick">
+                <label for="search"></label>
+                <input type="text" name="search" class="search" placeholder="Search" id="searchnews" style="border-style: hidden;">
+                </span> 
+            </div>
+          
+            <div class="items">
+            <button style="background-color: green; color: white; margin: 10px;width: 100px; height: 30px; border-style: hidden;"><a href="" style="text-decoration: none; color: white; margin: 10px;">Our story</a></button>
+            <button style="background-color: green; color: white;width: 100px; height: 30px; margin: 10px;border-style: hidden;"><a href="" class="/login/" style="text-decoration: none; color: white;">Write</a></button>
+            
+        </div>
+        </ul>
+    </div>
+   
+  
+  <!-- Sports -->
+  <div class="sports" style="display: flex; flex-direction: column;">
+      <span class="newstitle sports-title" style="align-self: center; margin: 10px; font-size: larger;"></span>
+      <br>
+      <img class="imageofnews sports-image" src="" alt="" style="width: 200px; height: 200px; align-self: center;">
+      <br>
+      <p class="contentofnews sports-content" style="margin-left: 20px; margin-right: 20px;"></p>
+  </div>
+  
+  <!-- Politics -->
+ 
+
+
+</div>
+<script>
+    var newsUrl1 = "{% url 'news1' %}";
+  
+   
+
+// For sports
+document.addEventListener("DOMContentLoaded", function () {
+    const newsDetails1 = JSON.parse(localStorage.getItem("newsDetails1"));
+    if (newsDetails1) {
+        const newsTitleElement = document.querySelector('.sports-title');
+        const newsimage = document.querySelector('.sports-image');
+        const newscontent = document.querySelector('.sports-content');
+        
+        newsTitleElement.innerHTML = newsDetails1.title;
+        newsimage.src = newsDetails1.image_url;
+        newscontent.innerHTML = newsDetails1.content;
+    }
+});
+
+// For politics
+
+  </script>
+  <script src="{% static 'myfirst.js' %}"></script>
+</body>

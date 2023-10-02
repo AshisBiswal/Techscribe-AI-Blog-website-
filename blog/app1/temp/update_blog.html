@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'myfirst.js' %}"></script>
+    
+</head>
+<body>
+   <div class="navbar">
+    
+    <div class="navigation">
+        <ul>
+            <div class="nav2">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="searchbar">
+                <img src="{% static 'search.png'  %}" alt="" class="searchicon" id="searchclick">
+                <label for="search"></label>
+                <input type="text" name="search" class="search" placeholder="Search" id="searchnews">
+                </span> 
+            </div>
+          
+            <div class="items">
+            <li><a href="" style="text-decoration: none; color: black;">Our story</a></li>
+            <li><a href="" class="/login/" style="text-decoration: none; color: black;">Write</a></li>
+           
+        </div>
+        </ul>
+        <div class="container mt-5" style="margin: 40px; ">
+            <div>
+                <button style="height: 20px; background-color: rgb(67, 67, 242);"><a href="/home/" style="text-decoration: None; color: white;">Back</a></button>
+            </div>
+            
+        
+            <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12" style="margin: 30px;">
+                        <label>Enter blog title: </label>
+                        <input type="text" value="{{blog_obj.title}}" class="form-control" placeholder="Enter title" name="title">
+                    </div>
+        
+                    <div class="col-md-12" style="margin: 30px;">
+                        {{form.media}}
+                        {{form.as_p}}
+                    </div>
+        
+                    <div class="col-md-12" style="margin: 30px;">
+        
+                        <input type="file" name="image" class="form-control" >
+                        </div>
+        
+                </div>
+        
+                <button type="submit" class="btn btn-primary mt-4" style="margin: 30px; background-color: rgb(81, 81, 236);height: 30px; color: white;">Create Blog</button>
+        
+            </form>
+        
+        </div>
+    </div>
+</div>

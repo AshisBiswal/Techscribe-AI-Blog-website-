@@ -1,0 +1,29 @@
+.editform input{
+    width: 450px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 20px;
+
+}
+
+.editform label{
+    color: black;
+    margin: 10px;
+}
+
+.editform button{
+    width: 80px;
+    margin: 10px;
+    align-self: center;
+    background-color:green;
+    color: white;
+    border-style: hidden;
+    border-radius: 10px;
+}
+
+.editform img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    align-self: center;
+}

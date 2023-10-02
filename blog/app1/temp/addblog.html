@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blogstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="{% static 'file.js' %}"></script>
+</head>
+<body>
+   <div class="navbar">
+    
+    <div class="navigation" style="top: 10px;">
+        <ul>
+            <div class="nav2">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="websitetitle" >
+                    TechScribeAI
+                </span> 
+            
+            </div>
+          
+            <div class="itemsnew" >
+              
+                <button style="background-color: green;  width: 70px; border-style: hidden;border-radius: 10px; height: 30px;"><a href="/chatbot/" style="text-decoration: none; color: white;">OPENAI</a></button>
+                <button type="button" class="" href="/home/" style="background-color: green; margin-left: 10px;color: white; height: 30px; border-radius: 10px; border-style: hidden;">Log Out</button>
+        </div>
+        </ul>
+    </div>
+</div>
+   <div class="contain23"  style="width: 1000px;">
+    <form method="post" 
+    enctype="multipart/form-data" action="{% url 'addblog' %}">
+  {% csrf_token %}
+  <div style="position: relative; right: -30px; top: 50px;">
+    
+      <div >
+        {{form.media}}
+        {{form.as_p}}
+    </div>
+    <div >
+        <input type="file" name="image" class="form-control" >
+    </div>
+    <br>
+    <br>
+
+    <div >
+        <label for="category">Enter Category</label>
+        <br>
+        <input type="text" name="category" class="form-control">
+    </div>
+</div>
+
+<button type="submit"  class="btn btn-primary" style="margin-top: 110px; position: relative; left: 30px;">Create Blog</button>
+
+</form>
+</div>
+
+    
+        
+    
+   
+ 
+   
+
+</div>
+  
+</body>
+</html>

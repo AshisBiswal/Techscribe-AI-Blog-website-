@@ -1,0 +1,143 @@
+.blogimage{
+    position: relative;
+    height: 41px;
+    width: 38px;
+    top: 15px;
+}
+
+
+
+.navbar div ul{
+    display: flex;
+    flex-direction: row;
+    
+}
+.navbar div ul li{
+    margin-right: 20px;
+    list-style-type: none;
+    
+}
+.items{
+    display: flex;
+    margin-left: 350px;
+    justify-content: space-between;
+    
+    margin-top: 23px;
+
+}
+
+.items li{
+   font-family:"Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" ;
+   height: 35px;
+}
+
+.items li a{
+    font-family:"Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" ;
+    color: rgba(0, 0, 0, 0.815);
+    padding: 10px;
+
+    margin: 10px;
+}
+.items li a:hover{
+    color: black;
+    
+}
+
+
+.searchicon{
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 4px;
+}
+.nav2{
+    margin-left: 110px;
+    display: flex;
+   
+}
+.searchbar{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 18px;
+}
+.search{
+    height: 30px;
+    width: 280px;
+    border-radius: 10px;
+}
+
+.navbar{
+    background-color:aliceblue;  
+
+    height: 80px;
+    position: relative;
+    top: -16px;
+    right: -10px;
+    left: -20px;
+    margin-right: -28px;
+}
+
+.body{
+    display: flex;
+    
+}
+
+.body img{
+    align-self: center;
+}
+.newscontain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+#imageblog{
+    float: left;
+    width: 30%;
+    height:90%;
+}
+
+.websitetitle{
+    font-weight: 500;
+    margin-top: 28px;
+    margin-left: 15px;
+    font-size: large;
+    font-family:"Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" ;
+    color: black;
+
+}
+.box2image{
+    width: 300px;
+    height: 300px;
+    margin-top: 50px;
+    margin-left: 25px;
+    border-radius: 10px;
+   
+}
+.box4{
+    display: flex;
+    flex-direction: column;
+   
+    margin-top: 60px;
+    margin-left: 40px;
+
+}
+.box4 span{
+    color: white;
+    font-size: larger;
+   
+}
+.user1 a{
+    font-size: large;
+
+}
+
+.itemsnew{
+    display: flex;
+    width: fit-content;
+    
+}

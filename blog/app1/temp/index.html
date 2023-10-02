@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'myfirst.js' %}"></script>
+</head>
+<body style="background-color: rgb(241, 247, 160);">
+   <div class="navbar">
+    
+    <div class="navigation" style="background-color: aliceblue;">
+        <ul>
+            <div class="nav2" style="margin-left: 100px;">
+                <img src="{% static 'blogger.png' %}" alt="" class="blogimage">
+                <span class="searchbar">
+                <img src="{% static 'search.png'  %}" alt="" class="searchicon" id="searchclick" style="border-radius: 10px;">
+                <label for="search"></label>
+                <input type="text" name="search" class="search" placeholder="Search" id="searchnews" style="border-style: hidden;">
+                </span> 
+            </div>
+          
+            <div class="items">
+           
+            <li><a href="/addblog/" class="write" style="text-decoration: none; color: white; background-color: green;border-radius: 10px;">Write</a></li>
+           
+                
+            
+         
+                
+        </div>
+        <span class="user1" style="background-color: aliceblue;">
+            <li><img src="{% static 'usericon.jpg' %}" alt=""  style="height: 30px; width: 30px;border-radius: 20px; margin-left: 30px; margin-top: 10px;"></li>
+         
+         
+        <span ><li style="background-color: green; border-radius: 20px;"><a href="{% url 'profile'  %}" style="text-decoration: none; color: white;margin:15px;">{{user}}</a></li>  </span>
+    </span>
+        </ul>
+    </div>
+   
+   </div>
+   <button style="font-size: medium;color: white; background-color: green; width: fit-content; border-style: hidden;border-radius: 5px;"> Popular Blogs</button>
+   <br>
+   <br>
+   <br>
+   <div>
+    <form method="post" >
+        {% csrf_token %}
+        <label for="filter">Filter out</label>
+        <input type="text" name="filter">
+        <button type="submit">Submit</button>
+    </form>
+   </div>
+   <div class="body" style="background-color:  rgb(241, 247, 160);">
+    
+        {% for blog in blogs %}
+        {% if forloop.counter <= 4 %}
+        <div style="background-color:  aliceblue; border-radius: 0px; width: 400px; height: 250px; margin: 10px; float: left; display:flex;flex-direction:column;overflow: scroll;">
+            <img src="/media/{{ blog.image }}" alt="" id="imageblog" style="float: left;width: 70%;height:50%; margin: 15px; ">
+            <a href="{% url 'blogdetails' blog.slug%}" style="align-self: center;">{{ blog.title }}</a>
+            <span style="margin: 10px;">{{blog.user}}</span>
+            <span style="margin: 10px;">Views:{{blog.views}}</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+</div>
+<br>
+<br>
+<br>
+<button style="font-size: medium;color: white; background-color: green; width: fit-content; border-style: hidden;border-radius: 5px;"> Trending in Technology</button>
+<br>
+<br>
+<div class="body" style="background-color:rgb(241, 247, 160);">
+    
+{% for _ in "1234" %}
+    <div  class="tech"  style="background-color: aliceblue; border-radius: 0px; width: 400px; height: 300px; margin: 10px; display: flex; flex-direction: column;overflow: scroll;">
+        <img src="" alt="" class="imagetech" style="float: left;width: 80%;height:50%; margin-top: 15px; ">
+        <br>
+        <span class="techtitle"  style="align-self: center;margin: 10px;"></span>
+        <br>
+        
+        
+        <a class="techlink"    href="{% url 'news' %}" style="margin: 10px;"></a>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<br>
+<br>
+<button style="font-size: medium;color: white; background-color: green; width: fit-content; border-style: hidden;border-radius: 5px;"> Trending in Sports</button>
+<br>
+<br>
+<div class="body" style="background-color: rgb(241, 247, 160);">
+    
+{% for _ in "1234" %}
+    <div  class="sports"  style="background-color: aliceblue; border-radius: 0px; width: 400px; height: 300px; margin: 10px; display: flex;flex-direction: column;overflow: scroll;">
+        <img src="" alt="" class="sportimage" style="float: left;width: 80%;height:50%; margin-top: 15px; ">
+        <br>
+        <span class="sportstitle" style="align-self: center; margin: 10px;"></span>
+        <br>
+        
+        <a  class="sportslink"  href="{% url 'news1' %}"  style="margin: 10px;"></a>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<br>
+<br>
+<button style="font-size: medium;color: white; background-color: green; width: fit-content; border-style: hidden;border-radius: 5px;"> Trending in Politics</button>
+<br>
+<br>
+<div class="body" style="background-color:rgb(241, 247, 160) ;">
+    
+{% for _ in "1234" %}
+    <div  class="politics" class="politics" style="background-color: aliceblue; border-radius: 0px; width: 400px; height: 300px; margin: 10px; float: left;display: flex;flex-direction: column;overflow: scroll;">
+        <img src="" alt="" class="politicsimage" style="float: left;width: 80%;height:50%; margin-top: 15px;">
+        <br>
+        <span class="politicstitle" style="align-self: center;margin: 10px;"></span>
+       
+        <br>
+        <a class="politicslink"  href="{% url 'news2' %}"  style="margin: 10px;"></a>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+  
+</body>
+</html>

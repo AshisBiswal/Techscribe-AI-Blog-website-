@@ -1,0 +1,54 @@
+ def save(self, *args, **kwargs):
+        self.slug = generate_slug(self.title)
+        super(BlogModel, self).save(*args, **kwargs)
+
+from django.utils.text import slugify
+
+import string
+import random
+ 
+
+def generate_random_string(N):
+    res = ''.join(random.choices(string.ascii_uppercase +
+                             string.digits, k=N))
+    return res
+# print result
+
+def generate_slug(text):
+    new_slug = slugify(text)
+    from .models import BlogModel
+    if BlogModel.objects.filter(slug = new_slug).first():
+        return generate_slug(text + generate_random_string(5))
+    return new_slug
+
+
+
+      user_profile = Profile.objects.get(user=user)
+        if(user_profile is not None):
+            context['user_profile'] = user_profile
+        else:
+            context['user_profile'] = "dummy"
+
+        # Retrieve the user's blogs
+        user_blogs = BlogModel.objects.filter(user=user)
+        context['user_blogs'] = user_blogs
+
+        return render(request, 'profile.html', context)
+
+
+
+ chats = Chat.objects.filter(user=request.user)
+
+    if request.method == 'POST':
+        message = request.POST.get('message')
+        response_data = ask_openai(message)  # Get the JSON response data
+
+        # Extract the response text from the JSON data
+        response_text = response_data.get('text', 'No response')
+
+
+        chat = Chat(user=request.user, message=message, response=response_text, created_at=timezone.now())
+        chat.save()
+        return JsonResponse({'message': message, 'response': response_text})  
+
+    return render(request, 'chatbot.html', {'chats': chats})
